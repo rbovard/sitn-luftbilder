@@ -1,8 +1,19 @@
-# SITN Stationnements
+# SITN Luftbilder
 
 ## About
 
-This app is used to compute the number of car parkings in construction projects.
+This app is used to overlay swisstopo aerial imagery with the SITN basemap.
+
+The base URL has to be called using three parameters:
+
+* url: the orthophoto URL has given in the swisstopo metadata (see links on that
+page: https://www.swisstopo.admin.ch/fr/imagesaerienne-en-telechargement-20241120)
+* east: the east coordinate of the image center
+* north: the north coodrinate of the image center
+
+Hence, the called URL would be something like:
+Docker: http://localhost:5024/?east=2559158.53&north=1203713.73&url=https://data.geo.admin.ch/ch.swisstopo.lubis-luftbilder_schwarzweiss/lubis-luftbilder_schwarzweiss_000-321-260/lubis-luftbilder_schwarzweiss_000-321-260_op_2056.tif
+Dev mode: http://localhost:5173/?east=2559158.53&north=1203713.73&url=https://data.geo.admin.ch/ch.swisstopo.lubis-luftbilder_schwarzweiss/lubis-luftbilder_schwarzweiss_000-321-260/lubis-luftbilder_schwarzweiss_000-321-260_op_2056.tif
 
 ## Getting started
 
