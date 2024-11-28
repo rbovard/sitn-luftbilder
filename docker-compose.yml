@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  front: # name of the container
+    image: sitn-luftbilder
+    build:
+      context: .
+    restart: unless-stopped
+    ports:
+      - "5024:80"
