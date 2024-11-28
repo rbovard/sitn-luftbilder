@@ -12,8 +12,8 @@ page: https://www.swisstopo.admin.ch/fr/imagesaerienne-en-telechargement-2024112
 * north: the north coodrinate of the image center
 
 Hence, the called URL would be something like:
-Docker: http://localhost:5024/?east=2559158.53&north=1203713.73&url=https://data.geo.admin.ch/ch.swisstopo.lubis-luftbilder_schwarzweiss/lubis-luftbilder_schwarzweiss_000-321-260/lubis-luftbilder_schwarzweiss_000-321-260_op_2056.tif
-Dev mode: http://localhost:5173/?east=2559158.53&north=1203713.73&url=https://data.geo.admin.ch/ch.swisstopo.lubis-luftbilder_schwarzweiss/lubis-luftbilder_schwarzweiss_000-321-260/lubis-luftbilder_schwarzweiss_000-321-260_op_2056.tif
+* Docker: http://localhost:5024/?east=2559158.53&north=1203713.73&url=https://data.geo.admin.ch/ch.swisstopo.lubis-luftbilder_schwarzweiss/lubis-luftbilder_schwarzweiss_000-321-260/lubis-luftbilder_schwarzweiss_000-321-260_op_2056.tif
+* Dev mode: http://localhost:5173/?east=2559158.53&north=1203713.73&url=https://data.geo.admin.ch/ch.swisstopo.lubis-luftbilder_schwarzweiss/lubis-luftbilder_schwarzweiss_000-321-260/lubis-luftbilder_schwarzweiss_000-321-260_op_2056.tif
 
 ## Getting started
 
