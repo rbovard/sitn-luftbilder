@@ -1,20 +1,12 @@
-### Compile ###
-# Select base image with Node.js preinstalled (official Node.js Alpine Linux image for v16.x)
-FROM node:16.10-alpine as builder
-# Define working directory in the Docker image to /usr/src/app
-WORKDIR /usr/src/app
-# Set path to node modules
-ENV PATH=${PATH}:./node_modules/.bin
-ENV NODE_PATH=/usr/src/app/node_modules
-# Copy package.json and package-lock.json to the /usr/src/app directory
-COPY package.json package-lock.json ./
+FROM node:22.6.0-slim AS builder
 
-# Install app dependencies
-RUN npm install --loglevel=error --no-audit
-# Copy the rest of project files into the Docker image
+WORKDIR /usr/src/app
+
+COPY package*.json ./.
+RUN npm ci --legacy-peer-deps
+
 COPY . .
-# Build app with vite (will create "/usr/src/app/dist/" directory)
-RUN vite build
+RUN npm run build
 
 ### Run apache server ###
 FROM httpd:alpine
