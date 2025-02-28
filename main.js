@@ -93,16 +93,22 @@ fetch(capabilitiesUrl).then(r => r.text()).then(text => {
   wmtsSource.projection = projection;
 
   const backgroundLayer = new TileLayer({source: wmtsSource});
-  const imageSource = new GeoTIFF({convertToRGB:true, sources: [{url: imageUrl, nodata: NaN}]})
+  const imageSource = new GeoTIFF({convertToRGB:'auto', sources: [{url: imageUrl, nodata: NaN}]})
   imageLayer = new WebGLTileLayer({source: imageSource});
 
-  if (imageSource.bandCount < 3){
-    imageLayer.setStyle(GREYSCALE_STYLE)
-  }else if(imageSource.bandCount < 4){
-    imageLayer.setStyle(RGB_STYLE)
-  }else{
-    imageLayer.setStyle(RGBA_STYLE)
-  }
+  let isStyleSet = false
+  imageLayer.on('postrender', _ => {
+    if(!isStyleSet){
+      if (imageSource.bandCount < 3){
+        imageLayer.setStyle(GREYSCALE_STYLE)
+      }else if(imageSource.bandCount < 4){
+        imageLayer.setStyle(RGB_STYLE)
+      }else{
+        imageLayer.setStyle(RGBA_STYLE)
+      }
+    } 
+    isStyleSet = true
+  })
 
   const view = new View({
     projection,
